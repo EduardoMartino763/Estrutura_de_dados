@@ -5,13 +5,27 @@ struct No {
     int valor;
     struct No *ant; //ponteiro para o nó anterior
     struct No *prox; //ponteiro para o proximo nó
+};
+
+void inserirFim (struct No **head, int x) {
+    struct No *novo = (struct No) malloc (sizeof(struct No));
+    novo ->valor = x;
+    novo ->ant = *novo
+    novo ->prox = *aux
+
+    if(*head != NULL) {
+        struct No *aux = *head;
+        while(aux->prox != NULL) {
+            aux = aux->prox;
+        }
+        aux->prox = novo;
 }
 
 void inserirInicio(struct No **head, int x) {
     struct No *novo = (struct No*) malloc(sizeof(struct No));
     novo ->valor = x;
     novo ->ant = NULL;
-    novo->prox = *head;
+    novo ->prox = *head;
 
     if (*head != NULL) {
         (*head) ->ant = novo;
@@ -33,11 +47,12 @@ void imprimir (struct No *head) {
 }
 
 int main() {
-    struct No *heade = NULL;
+    struct No *head = NULL;
 
     inserirInicio(&head, 11);
     inserirInicio(&head, 8);
     inserirInicio(&head, 5);
+    inserirFim(&head, 13);
 
     imprimir(head);
 
